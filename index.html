@@ -493,21 +493,17 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 55%;
+      object-position: center center;
       display: block;
-      filter: brightness(0.78) contrast(1.06);
+      filter: brightness(0.76) contrast(1.06);
       opacity: 0;
-      transform: scale(1.06);
+      transform: scale(1.04);
       animation: heroBgReveal 2.1s var(--ease-editorial) 0.1s forwards;
     }
 
     @keyframes heroBgReveal {
-      from { opacity: 0; transform: scale(1.06); }
+      from { opacity: 0; transform: scale(1.04); }
       to { opacity: 1; transform: scale(1); }
-    }
-
-    @media (max-width: 768px) {
-      .hero-img-el { object-position: 42% center; }
     }
 
     .hero-vignette {
@@ -517,9 +513,9 @@
       background: linear-gradient(
         to top,
         rgba(7, 8, 12, 0.94) 0%,
-        rgba(7, 8, 12, 0.58) 34%,
-        rgba(7, 8, 12, 0.22) 64%,
-        rgba(7, 8, 12, 0.16) 100%
+        rgba(7, 8, 12, 0.56) 34%,
+        rgba(7, 8, 12, 0.20) 64%,
+        rgba(7, 8, 12, 0.14) 100%
       );
       pointer-events: none;
     }
@@ -539,29 +535,6 @@
 
     .hero-lead-editorial { max-width: 900px; }
 
-    .hero-kicker {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--mz-yellow);
-      margin-bottom: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      opacity: 0;
-      transform: translateY(22px);
-      animation: heroTitleEnter 1.3s var(--ease-editorial) 0.65s forwards;
-    }
-
-    .hero-kicker::before {
-      content: "";
-      width: 24px;
-      height: 2px;
-      background: var(--mz-red);
-    }
-
     .hero-editorial-title {
       font-family: var(--font-display);
       font-size: clamp(2.35rem, 5.2vw, 4.55rem);
@@ -569,7 +542,7 @@
       line-height: 1.03;
       letter-spacing: -0.035em;
       color: #FFFFFF;
-      margin: 0 0 1.65rem 0;
+      margin: 0;
       text-shadow: 0 4px 28px rgba(0, 0, 0, 0.75);
       opacity: 0;
       transform: translateY(34px);
@@ -586,43 +559,9 @@
       color: var(--mz-red-glow);
     }
 
-    .hero-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px;
-      opacity: 0;
-      transform: translateY(26px);
-      animation: heroTitleEnter 1.4s var(--ease-editorial) 1.25s forwards;
-    }
-
-    .hero-tel-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 13px 22px;
-      border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.10);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      color: #FFFFFF;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .hero-tel-link:hover {
-      background: rgba(255, 255, 255, 0.18);
-      border-color: var(--mz-yellow);
-    }
-
     @media (max-width: 768px) {
       .hero-editorial { padding-bottom: 84px; padding-top: 96px; }
       .hero-editorial-inner { padding: 0 1rem; }
-      .hero-cta-row { flex-direction: column; align-items: stretch; }
-      .hero-cta-row .btn-editorial,
-      .hero-cta-row .hero-tel-link { justify-content: center; width: 100%; }
     }
 
     /* ==========================================================================
@@ -2268,24 +2207,17 @@
          ====================================================================== -->
     <section class="hero-editorial" id="inicio">
       <div class="hero-bg-stage" aria-hidden="true">
-        <img src="assets/flota-audi-a1-castellon.png" alt="Audi A1 de Autoescuela Monza en Castellón de la Plana" class="hero-img-el" />
+        <video class="hero-img-el" autoplay muted loop playsinline preload="metadata" poster="assets/flota-audi-a1-castellon.png">
+          <source src="assets/videohome.mp4" type="video/mp4" />
+        </video>
       </div>
       <div class="hero-vignette" aria-hidden="true"></div>
 
       <div class="hero-editorial-inner">
         <div class="hero-lead-editorial">
-          <div class="hero-kicker">Más de 30 años en Castellón · 4,9 ★ en Google</div>
           <h1 class="hero-editorial-title">
             Tu carnet de conducir en Castellón, <em>con total confianza.</em>
           </h1>
-          <div class="hero-cta-row">
-            <button type="button" class="btn-editorial btn-wa-primary js-open-triage" data-curso="Permiso B (Coche)">
-              Solicitar información (15s) →
-            </button>
-            <a href="tel:+34964230336" class="hero-tel-link">
-              Llamar · 964 23 03 36
-            </a>
-          </div>
         </div>
       </div>
     </section>
